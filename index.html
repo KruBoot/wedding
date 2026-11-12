@@ -1,0 +1,3104 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>THE GOLDEN THAI WEDDING — การ์ดเชิญงานมงคลสมรส (DEMO)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --antique-gold: #B88635;
+      --antique-gold-dark: #8E6420;
+      --champagne-gold: #D6B56D;
+      --champagne-light: #EAD8AC;
+      --ivory: #FFF9EC;
+      --warm-cream: #F5EBD6;
+      --deep-brown: #58391F;
+      --brown-muted: #7C5A3C;
+      --white: #FFFFFF;
+      --gold-gradient: linear-gradient(135deg, #9F6F24 0%, #D6B56D 35%, #B88635 55%, #F0DFB4 80%, #9F6F24 100%);
+      --gold-border-gradient: linear-gradient(180deg, rgba(184,134,53,0.65), rgba(214,181,109,0.3), rgba(184,134,53,0.65));
+      --shadow-luxury: 0 12px 34px rgba(88, 57, 31, 0.09), 0 2px 8px rgba(184, 134, 53, 0.12);
+      --shadow-card: 0 6px 20px rgba(88, 57, 31, 0.07);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --font-serif-th: 'Noto Serif Thai', Georgia, serif;
+      --font-sans-th: 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display-th: 'Charm', 'Noto Serif Thai', serif;
+      --font-en: 'Cormorant Garamond', Georgia, serif;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--ivory);
+      color: var(--deep-brown);
+      font-family: var(--font-sans-th);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--ivory);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(214, 181, 109, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(184, 134, 53, 0.10) 0%, transparent 45%);
+      color: var(--deep-brown);
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding-bottom: calc(84px + var(--safe-bottom));
+      position: relative;
+    }
+
+    body.lock-scroll {
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    /* Ambient floating particles & petals canvas */
+    #ambient-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.75;
+    }
+
+    /* Top Demo Banner & Audio Bar */
+    .top-utility-bar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(255, 249, 236, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(184, 134, 53, 0.28);
+      font-size: 0.78rem;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--warm-cream);
+      border: 1px solid var(--champagne-gold);
+      color: var(--deep-brown);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .demo-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--antique-gold);
+      flex-shrink: 0;
+    }
+
+    .utility-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 134, 53, 0.45);
+      background: var(--white);
+      color: var(--deep-brown);
+      font-family: var(--font-sans-th);
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .icon-pill-btn:hover,
+    .icon-pill-btn:focus-visible {
+      border-color: var(--antique-gold);
+      background: var(--warm-cream);
+      outline: none;
+    }
+
+    .icon-pill-btn[aria-pressed="true"] {
+      background: var(--antique-gold);
+      color: var(--white);
+      border-color: var(--antique-gold);
+    }
+
+    /* Main Mobile-First Container */
+    .page-shell {
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 768px) {
+      .page-shell {
+        max-width: 720px;
+        padding: 0 24px;
+      }
+    }
+
+    /* Section Styling */
+    .wedding-section {
+      padding: 44px 0 20px;
+      position: relative;
+    }
+
+    .section-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 249, 236, 0.96) 100%);
+      border: 1px solid rgba(184, 134, 53, 0.38);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 480px) {
+      .section-card {
+        padding: 36px 28px;
+      }
+    }
+
+    /* Double hairline Thai luxury frame */
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(214, 181, 109, 0.45);
+      border-radius: calc(var(--radius-lg) - 5px);
+      pointer-events: none;
+    }
+
+    /* Corner Kanok Ornaments */
+    .kanok-corner {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.85;
+    }
+    .kanok-corner.tl { top: 10px; left: 10px; }
+    .kanok-corner.tr { top: 10px; right: 10px; transform: scaleX(-1); }
+    .kanok-corner.bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+    .kanok-corner.br { bottom: 10px; right: 10px; transform: scale(-1, -1); }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-en);
+      font-size: 0.88rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--antique-gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif-th);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--deep-brown);
+      line-height: 1.35;
+    }
+
+    .kanok-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto 0;
+      width: 180px;
+      height: 24px;
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================
+       A. OPENING ENVELOPE OVERLAY
+       ========================================== */
+    .envelope-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background:
+        radial-gradient(circle at 50% 25%, #FFFDF7 0%, var(--ivory) 55%, var(--warm-cream) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px calc(24px + var(--safe-bottom));
+      transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s ease;
+      overflow: hidden;
+    }
+
+    .envelope-overlay.is-dismissed {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .envelope-top-controls {
+      position: absolute;
+      top: max(14px, env(safe-area-inset-top, 14px));
+      right: 16px;
+      left: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .envelope-stage {
+      width: 100%;
+      max-width: 390px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .envelope-pretitle {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--antique-gold);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .envelope-heading {
+      font-family: var(--font-serif-th);
+      font-size: 1.35rem;
+      color: var(--deep-brown);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    /* 3D Luxury Thai Envelope Box */
+    .envelope-wrapper {
+      width: 100%;
+      max-width: 350px;
+      aspect-ratio: 4 / 3.15;
+      position: relative;
+      perspective: 1200px;
+      margin: 4px auto 22px;
+    }
+
+    .envelope-back {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, #FBF3E0 0%, #EFE0BE 100%);
+      border-radius: 16px;
+      border: 1.5px solid var(--antique-gold);
+      box-shadow: 0 20px 45px rgba(88, 57, 31, 0.18), 0 4px 12px rgba(184, 134, 53, 0.2);
+      overflow: hidden;
+    }
+
+    /* Rising Invitation Card inside the Envelope */
+    .envelope-inner-card {
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 10%;
+      bottom: 8%;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF9EC 100%);
+      border: 1px solid var(--antique-gold);
+      border-radius: 12px;
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(88, 57, 31, 0.12);
+      z-index: 2;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .envelope-wrapper.is-opening .envelope-inner-card {
+      transform: translateY(-34%) scale(1.03);
+    }
+
+    .inner-card-monogram {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: var(--antique-gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .inner-card-names {
+      font-family: var(--font-display-th);
+      font-size: 1.45rem;
+      color: var(--deep-brown);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .inner-card-date {
+      font-size: 0.82rem;
+      color: var(--brown-muted);
+    }
+
+    /* Envelope Front Pocket */
+    .envelope-pocket {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .envelope-pocket svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Top Flap */
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 58%;
+      z-index: 4;
+      transform-origin: top center;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.1s 0.4s;
+      pointer-events: none;
+    }
+
+    .envelope-wrapper.is-opening .envelope-flap {
+      transform: rotateX(175deg);
+      z-index: 1;
+    }
+
+    /* Golden Thai Wax Seal */
+    .wax-seal-btn {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #F5E1A4 0%, #D6B56D 35%, #B88635 72%, #7D5618 100%);
+      border: 2px solid #FFF5D6;
+      box-shadow: 0 8px 20px rgba(88, 57, 31, 0.32), inset 0 2px 5px rgba(255, 255, 255, 0.6);
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--deep-brown);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, box-shadow 0.3s ease;
+    }
+
+    .wax-seal-btn:hover,
+    .wax-seal-btn:focus-visible {
+      transform: translate(-50%, -50%) scale(1.06);
+      box-shadow: 0 10px 26px rgba(184, 134, 53, 0.48), inset 0 2px 6px rgba(255, 255, 255, 0.8);
+      outline: none;
+    }
+
+    .envelope-wrapper.is-opening .wax-seal-btn {
+      transform: translate(-50%, -50%) scale(0.6);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .wax-seal-initials {
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: #462B12;
+      line-height: 1;
+    }
+
+    .envelope-invite-note {
+      font-family: var(--font-serif-th);
+      font-size: 0.98rem;
+      color: var(--brown-muted);
+      margin-bottom: 18px;
+      max-width: 310px;
+    }
+
+    /* Primary Luxury Gold CTA Button */
+    .btn-luxury-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      min-width: 220px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: var(--gold-gradient);
+      color: #3B230E;
+      font-family: var(--font-serif-th);
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: 1px solid #FFF2CC;
+      box-shadow: 0 8px 22px rgba(184, 134, 53, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.65);
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      text-decoration: none;
+    }
+
+    .btn-luxury-gold:hover,
+    .btn-luxury-gold:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(184, 134, 53, 0.45), inset 0 1px 3px rgba(255, 255, 255, 0.8);
+      outline: 2px solid var(--antique-gold);
+      outline-offset: 2px;
+    }
+
+    .btn-luxury-gold:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--deep-brown);
+      border: 1.5px solid var(--antique-gold);
+      font-family: var(--font-sans-th);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-decoration: none;
+    }
+
+    .btn-outline-gold:hover,
+    .btn-outline-gold:focus-visible {
+      background: var(--warm-cream);
+      border-color: var(--antique-gold-dark);
+      outline: 2px solid var(--antique-gold);
+      outline-offset: 2px;
+    }
+
+    /* ==========================================
+       B. HERO / COUPLE SECTION
+       ========================================== */
+    .hero-card {
+      text-align: center;
+      padding-top: 36px;
+      padding-bottom: 36px;
+    }
+
+    .hero-auspicious-symbol {
+      width: 68px;
+      height: 52px;
+      margin: 0 auto 10px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-en);
+      font-size: 0.86rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--antique-gold);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    /* Ornate Golden Portrait Frame */
+    .hero-portrait-frame {
+      position: relative;
+      width: 100%;
+      max-width: 310px;
+      margin: 0 auto 24px;
+      padding: 12px;
+      border-radius: 180px 180px 24px 24px;
+      background: linear-gradient(180deg, #E6CA85 0%, #B88635 50%, #F3E2B3 100%);
+      box-shadow: 0 14px 32px rgba(88, 57, 31, 0.16);
+    }
+
+    .hero-portrait-inner {
+      border-radius: 170px 170px 16px 16px;
+      overflow: hidden;
+      background: var(--warm-cream);
+      border: 3px solid var(--ivory);
+      aspect-ratio: 3 / 3.8;
+      position: relative;
+    }
+
+    .hero-portrait-inner svg,
+    .hero-portrait-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-garland-badge {
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ivory);
+      border: 1.5px solid var(--antique-gold);
+      padding: 4px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(88, 57, 31, 0.12);
+      font-family: var(--font-en);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--antique-gold-dark);
+      white-space: nowrap;
+    }
+
+    .couple-names-th {
+      font-family: var(--font-display-th);
+      font-size: 2.1rem;
+      color: var(--deep-brown);
+      line-height: 1.35;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .couple-amp {
+      display: block;
+      font-family: var(--font-en);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--antique-gold);
+      margin: 2px 0;
+    }
+
+    .couple-names-en {
+      font-family: var(--font-en);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--brown-muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-date-pill {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--warm-cream);
+      border: 1px solid var(--champagne-gold);
+      border-radius: var(--radius-md);
+      padding: 14px 22px;
+      margin-bottom: 18px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .hero-date-main {
+      font-family: var(--font-serif-th);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--deep-brown);
+    }
+
+    .hero-venue-short {
+      font-size: 0.9rem;
+      color: var(--brown-muted);
+      margin-top: 4px;
+    }
+
+    .hero-welcome-quote {
+      font-family: var(--font-serif-th);
+      font-size: 0.96rem;
+      color: var(--deep-brown);
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ==========================================
+       C. COUPLE GALLERY & LIGHTBOX
+       ========================================== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      position: relative;
+      z-index: 3;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1.5px solid rgba(184, 134, 53, 0.45);
+      background: var(--warm-cream);
+      aspect-ratio: 3 / 4;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .gallery-item:hover,
+    .gallery-item:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(88, 57, 31, 0.16);
+      outline: 2px solid var(--antique-gold);
+      outline-offset: 2px;
+    }
+
+    .gallery-item svg,
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .gallery-item:hover svg,
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-caption-bar {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 20px 10px 8px;
+      background: linear-gradient(0deg, rgba(59, 35, 14, 0.82) 0%, transparent 100%);
+      color: var(--ivory);
+      font-size: 0.78rem;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(34, 21, 10, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: max(16px, env(safe-area-inset-top, 16px)) 16px calc(20px + var(--safe-bottom));
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .lightbox-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--ivory);
+    }
+
+    .lightbox-counter {
+      font-family: var(--font-en);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      color: var(--champagne-gold);
+    }
+
+    .lightbox-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(214, 181, 109, 0.5);
+      background: rgba(255, 249, 236, 0.12);
+      color: var(--ivory);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-icon-btn:hover,
+    .lightbox-icon-btn:focus-visible {
+      background: rgba(184, 134, 53, 0.45);
+      outline: 2px solid var(--champagne-gold);
+    }
+
+    .lightbox-stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 12px 0;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .lightbox-media-box {
+      width: 100%;
+      max-width: 420px;
+      max-height: 68vh;
+      border: 2px solid var(--champagne-gold);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--ivory);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      aspect-ratio: 3 / 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-media-box svg,
+    .lightbox-media-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lightbox-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .lightbox-caption-title {
+      color: var(--ivory);
+      font-family: var(--font-serif-th);
+      font-size: 1.05rem;
+    }
+
+    .lightbox-caption-sub {
+      color: var(--champagne-light);
+      font-size: 0.84rem;
+    }
+
+    .lightbox-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ==========================================
+       D. WEDDING INVITATION (THAI / ENGLISH TABS)
+       ========================================== */
+    .lang-tabs {
+      display: inline-flex;
+      background: var(--warm-cream);
+      border: 1px solid var(--champagne-gold);
+      border-radius: 999px;
+      padding: 4px;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .lang-tab-btn {
+      min-height: 44px;
+      min-width: 118px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: var(--brown-muted);
+      font-family: var(--font-sans-th);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .lang-tab-btn[aria-selected="true"] {
+      background: var(--antique-gold);
+      color: var(--white);
+      box-shadow: 0 3px 10px rgba(184, 134, 53, 0.3);
+    }
+
+    .invitation-content-wrap {
+      text-align: center;
+      position: relative;
+      z-index: 3;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .invitation-content-wrap.is-fading {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .parents-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: rgba(245, 235, 214, 0.55);
+      border: 1px solid rgba(184, 134, 53, 0.25);
+      border-radius: var(--radius-md);
+    }
+
+    @media (min-width: 480px) {
+      .parents-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .parent-side-label {
+      font-size: 0.78rem;
+      color: var(--antique-gold-dark);
+      font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .parent-names {
+      font-family: var(--font-serif-th);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--deep-brown);
+      line-height: 1.5;
+    }
+
+    .formal-invite-text {
+      font-family: var(--font-serif-th);
+      font-size: 0.98rem;
+      color: var(--deep-brown);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .invite-couple-highlight {
+      padding: 14px 12px;
+      margin: 8px 0 18px;
+      border-top: 1px solid rgba(184, 134, 53, 0.35);
+      border-bottom: 1px solid rgba(184, 134, 53, 0.35);
+    }
+
+    .invite-couple-highlight .name-line {
+      font-family: var(--font-display-th);
+      font-size: 1.65rem;
+      color: var(--deep-brown);
+      font-weight: 700;
+    }
+
+    .invite-closing-line {
+      font-size: 0.9rem;
+      color: var(--brown-muted);
+      font-style: italic;
+    }
+
+    /* ==========================================
+       E. WEDDING SCHEDULE TIMELINE
+       ========================================== */
+    .schedule-timeline {
+      position: relative;
+      z-index: 3;
+      padding-left: 24px;
+      margin-top: 8px;
+    }
+
+    .schedule-timeline::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 23px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--antique-gold), var(--champagne-gold), var(--antique-gold));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 30px;
+      padding-bottom: 22px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-icon-node {
+      position: absolute;
+      left: -18px;
+      top: 2px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--ivory);
+      border: 2px solid var(--antique-gold);
+      box-shadow: 0 3px 10px rgba(184, 134, 53, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--antique-gold-dark);
+    }
+
+    .timeline-card {
+      background: var(--white);
+      border: 1px solid rgba(184, 134, 53, 0.32);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .timeline-time-badge {
+      display: inline-block;
+      background: var(--warm-cream);
+      color: var(--antique-gold-dark);
+      border: 1px solid rgba(184, 134, 53, 0.35);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .timeline-title {
+      font-family: var(--font-serif-th);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--deep-brown);
+      margin-bottom: 4px;
+    }
+
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: var(--brown-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================
+       F. WEDDING LOCATION
+       ========================================== */
+    .venue-visual-frame {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1.5px solid var(--champagne-gold);
+      margin-bottom: 18px;
+      background: var(--warm-cream);
+      aspect-ratio: 16 / 10;
+      position: relative;
+      z-index: 3;
+    }
+
+    .venue-visual-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .venue-details-box {
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    .venue-name {
+      font-family: var(--font-serif-th);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--deep-brown);
+      margin-bottom: 6px;
+    }
+
+    .venue-hall {
+      font-size: 0.95rem;
+      color: var(--antique-gold-dark);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .venue-address {
+      font-size: 0.9rem;
+      color: var(--brown-muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: rgba(245, 235, 214, 0.5);
+      border-radius: var(--radius-sm);
+      border: 1px dashed rgba(184, 134, 53, 0.4);
+    }
+
+    .venue-action-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 440px) {
+      .venue-action-row {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .venue-action-row > * {
+        flex: 1;
+      }
+    }
+
+    /* ==========================================
+       G. MULTIPLE QR CODE CENTER
+       ========================================== */
+    .qr-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .qr-card {
+      background: var(--white);
+      border: 1.5px solid rgba(184, 134, 53, 0.4);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+
+    .qr-type-badge {
+      display: inline-block;
+      background: var(--warm-cream);
+      color: var(--antique-gold-dark);
+      border: 1px solid var(--champagne-gold);
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .qr-card-title {
+      font-family: var(--font-serif-th);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--deep-brown);
+      margin-bottom: 4px;
+    }
+
+    .qr-card-desc {
+      font-size: 0.86rem;
+      color: var(--brown-muted);
+      margin-bottom: 14px;
+    }
+
+    /* Strict Quiet Zone Container for Real Scannable QR */
+    .qr-code-frame {
+      width: 210px;
+      height: 210px;
+      margin: 0 auto 14px;
+      padding: 16px;
+      background: #FFFFFF;
+      border: 2px solid var(--champagne-gold);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(88, 57, 31, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .qr-code-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      shape-rendering: crispEdges;
+    }
+
+    .qr-account-meta {
+      font-size: 0.85rem;
+      color: var(--deep-brown);
+      background: var(--ivory);
+      border: 1px solid rgba(184, 134, 53, 0.3);
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .qr-actions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .qr-actions-grid .full-span {
+      grid-column: 1 / -1;
+    }
+
+    .qr-btn-sm {
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(184, 134, 53, 0.5);
+      background: var(--ivory);
+      color: var(--deep-brown);
+      font-family: var(--font-sans-th);
+      font-size: 0.84rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .qr-btn-sm:hover,
+    .qr-btn-sm:focus-visible {
+      background: var(--warm-cream);
+      border-color: var(--antique-gold);
+      outline: 2px solid var(--antique-gold);
+    }
+
+    .qr-btn-sm.primary-tone {
+      background: var(--antique-gold);
+      color: var(--white);
+      border-color: var(--antique-gold);
+    }
+
+    .qr-btn-sm.primary-tone:hover {
+      background: var(--antique-gold-dark);
+    }
+
+    /* QR Zoom Modal */
+    .qr-zoom-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 130;
+      background: rgba(34, 21, 10, 0.9);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .qr-zoom-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .qr-zoom-card {
+      width: 100%;
+      max-width: 360px;
+      background: var(--ivory);
+      border: 2px solid var(--antique-gold);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .qr-zoom-box {
+      width: 260px;
+      height: 260px;
+      max-width: 100%;
+      margin: 14px auto;
+      padding: 18px;
+      background: #FFFFFF;
+      border: 2px solid var(--champagne-gold);
+      border-radius: 12px;
+    }
+
+    .qr-zoom-box svg {
+      width: 100%;
+      height: 100%;
+      shape-rendering: crispEdges;
+    }
+
+    /* ==========================================
+       H. CLOSING SECTION & CONFIG DRAWER
+       ========================================== */
+    .closing-card {
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    .closing-quote {
+      font-family: var(--font-serif-th);
+      font-size: 1.02rem;
+      color: var(--deep-brown);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .closing-signature {
+      font-family: var(--font-display-th);
+      font-size: 1.85rem;
+      color: var(--antique-gold-dark);
+      margin-bottom: 4px;
+    }
+
+    .closing-hashtag {
+      font-family: var(--font-en);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      color: var(--brown-muted);
+      margin-bottom: 24px;
+    }
+
+    .closing-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* ==========================================
+       05. MOBILE BOTTOM NAVIGATION
+       ========================================== */
+    .mobile-bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 80;
+      background: rgba(255, 249, 236, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1.5px solid rgba(184, 134, 53, 0.38);
+      box-shadow: 0 -6px 24px rgba(88, 57, 31, 0.1);
+      padding: 6px 8px calc(6px + var(--safe-bottom));
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    }
+
+    .mobile-bottom-nav.is-hidden {
+      transform: translateY(110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .bottom-nav-list {
+      max-width: 520px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      list-style: none;
+    }
+
+    .bottom-nav-btn {
+      width: 100%;
+      min-height: 52px;
+      border: none;
+      background: transparent;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: var(--brown-muted);
+      font-family: var(--font-sans-th);
+      font-size: 0.72rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 4px 2px;
+    }
+
+    .bottom-nav-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 1.9;
+      transition: transform 0.2s ease;
+    }
+
+    .bottom-nav-btn.is-active {
+      color: var(--deep-brown);
+      background: rgba(214, 181, 109, 0.28);
+      font-weight: 700;
+    }
+
+    .bottom-nav-btn.is-active svg {
+      color: var(--antique-gold-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      #ambient-canvas {
+        display: none !important;
+      }
+    }
+  </style>
+<style data-link-removed-style>a[data-link-removed],a[href*="zPythonSafez"]:not([onclick]){pointer-events:none!important;cursor:default!important;opacity:.6}</style></head>
+<body class="lock-scroll">
+
+  <!-- Ambient Golden Particles & Jasmine Petals Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Reusable SVG Definitions for Thai Kanok Ornaments & Floral Art -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#9A6B21"/>
+        <stop offset="35%" stop-color="#D6B56D"/>
+        <stop offset="55%" stop-color="#B88635"/>
+        <stop offset="80%" stop-color="#F1DFB2"/>
+        <stop offset="100%" stop-color="#8E6420"/>
+      </linearGradient>
+
+      <!-- Intricate Thai Kanok Corner Ornament -->
+      <symbol id="kanok-corner-sym" viewBox="0 0 64 64">
+        <path d="M4 60 L4 16 C4 9 9 4 16 4 L60 4" fill="none" stroke="url(#goldMetallic)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M10 48 C10 26 20 12 46 10 C32 16 26 24 26 36 C26 26 34 20 44 18 C34 24 32 32 36 40 C26 36 18 40 12 52 Z" fill="url(#goldMetallic)" opacity="0.88"/>
+        <circle cx="14" cy="14" r="3" fill="url(#goldMetallic)"/>
+      </symbol>
+
+      <!-- Thai Prajamyam & Kanok Horizontal Divider -->
+      <symbol id="kanok-divider-sym" viewBox="0 0 240 32">
+        <path d="M8 16 H88 M152 16 H232" stroke="url(#goldMetallic)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M120 3 L132 16 L120 29 L108 16 Z" fill="none" stroke="url(#goldMetallic)" stroke-width="1.8"/>
+        <circle cx="120" cy="16" r="4" fill="url(#goldMetallic)"/>
+        <path d="M96 16 L104 10 L108 16 L104 22 Z" fill="url(#goldMetallic)"/>
+        <path d="M144 16 L136 10 L132 16 L136 22 Z" fill="url(#goldMetallic)"/>
+        <circle cx="78" cy="16" r="2.2" fill="url(#goldMetallic)"/>
+        <circle cx="162" cy="16" r="2.2" fill="url(#goldMetallic)"/>
+      </symbol>
+
+      <!-- Auspicious Chalom / Lotus Crest -->
+      <symbol id="thai-lotus-crest" viewBox="0 0 80 60">
+        <path d="M40 6 C46 18 52 28 40 44 C28 28 34 18 40 6 Z" fill="url(#goldMetallic)"/>
+        <path d="M40 44 C50 30 62 24 66 14 C66 28 56 42 40 46 Z" fill="url(#goldMetallic)" opacity="0.85"/>
+        <path d="M40 44 C30 30 18 24 14 14 C14 28 24 42 40 46 Z" fill="url(#goldMetallic)" opacity="0.85"/>
+        <path d="M18 48 Q40 56 62 48" fill="none" stroke="url(#goldMetallic)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="40" cy="52" r="2.5" fill="url(#goldMetallic)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ==========================================
+       A. OPENING ENVELOPE SCREEN
+       ========================================== -->
+  <section id="envelope-screen" class="envelope-overlay" aria-label="ซองการ์ดเชิญงานแต่งงาน">
+    <div class="envelope-top-controls">
+      <span class="demo-badge">
+        <span class="demo-dot"></span>
+        <span>DEMO — ข้อมูลสมมติสำหรับการตั้งค่า</span>
+      </span>
+      <button type="button" id="envelope-sound-btn" class="icon-pill-btn" aria-pressed="false" aria-label="เปิดหรือปิดเสียงดนตรีไทยประกอบ">
+        <span id="envelope-sound-icon" aria-hidden="true">🔇</span>
+        <span id="envelope-sound-label">ปิดเสียง</span>
+      </button>
+    </div>
+
+    <div class="envelope-stage">
+      <p class="envelope-pretitle">The Golden Thai Wedding</p>
+      <h1 class="envelope-heading">ขอเรียนเชิญร่วมงานมงคลสมรส</h1>
+
+      <div id="envelope-box" class="envelope-wrapper">
+        <div class="envelope-back"></div>
+
+        <!-- Invitation Card Inside Envelope -->
+        <div class="envelope-inner-card">
+          <span class="inner-card-monogram" id="env-monogram">K &amp; P</span>
+          <div class="inner-card-names" id="env-couple-names">กวินทร์ &amp; พิมพ์ชนก</div>
+          <div class="inner-card-date" id="env-wedding-date">วันอาทิตย์ที่ ๑๖ พฤศจิกายน ๒๕๖๘</div>
+        </div>
+
+        <!-- Envelope Pocket SVG with Gold Kanok Trim -->
+        <div class="envelope-pocket" aria-hidden="true">
+          <svg viewBox="0 0 400 315" preserveAspectRatio="none">
+            <polygon points="0,0 200,175 0,315" fill="#F4E6C8" stroke="#B88635" stroke-width="1.5"/>
+            <polygon points="400,0 200,175 400,315" fill="#EFE0BE" stroke="#B88635" stroke-width="1.5"/>
+            <polygon points="0,315 200,155 400,315" fill="#FAF0DA" stroke="#B88635" stroke-width="2"/>
+            <path d="M24 300 L200 168 L376 300" fill="none" stroke="#D6B56D" stroke-width="1.2" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
+
+        <!-- Top Envelope Flap SVG -->
+        <div class="envelope-flap" aria-hidden="true">
+          <svg viewBox="0 0 400 185" preserveAspectRatio="none" style="width:100%;height:100%;">
+            <polygon points="0,0 400,0 200,178" fill="#FFF8E8" stroke="#B88635" stroke-width="2"/>
+            <polygon points="18,6 382,6 200,164" fill="none" stroke="#D6B56D" stroke-width="1.2"/>
+          </svg>
+        </div>
+
+        <!-- Interactive Wax Seal Button -->
+        <button type="button" id="wax-seal-trigger" class="wax-seal-btn" aria-label="แตะตราประทับเพื่อเปิดซองการ์ดเชิญ">
+          <svg width="24" height="18" aria-hidden="true">
+            <use href="#thai-lotus-crest"></use>
+          </svg>
+          <span class="wax-seal-initials" id="env-seal-initials">K&bull;P</span>
+        </button>
+      </div>
+
+      <p class="envelope-invite-note">
+        กรุณาแตะปุ่มด้านล่างหรือตราประทับสีทองเพื่อเปิดการ์ดเชิญงานมงคลสมรส
+      </p>
+
+      <button type="button" id="open-envelope-btn" class="btn-luxury-gold">
+        <span>เปิดการ์ดเชิญ</span>
+        <span aria-hidden="true">✨</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Sticky Top Bar for Main Page -->
+  <header class="top-utility-bar" aria-label="แถบสถานะและเครื่องมือ">
+    <span class="demo-badge" title="ข้อมูลทั้งหมดในหน้านี้เป็นข้อมูลสมมติจากไฟล์การตั้งค่า WEDDING_CONFIG">
+      <span class="demo-dot"></span>
+      <span>ข้อมูลตัวอย่าง (DEMO)</span>
+    </span>
+    <div class="utility-actions">
+      <button type="button" id="reopen-envelope-btn" class="icon-pill-btn" aria-label="แสดงซองจดหมายอีกครั้ง">
+        <span aria-hidden="true">✉️</span>
+        <span>ซองการ์ด</span>
+      </button>
+      <button type="button" id="main-sound-btn" class="icon-pill-btn" aria-pressed="false" aria-label="เปิดหรือปิดเสียงประกอบ">
+        <span id="main-sound-icon" aria-hidden="true">🔇</span>
+        <span id="main-sound-label">เสียง</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN SINGLE-PAGE CONTENT
+       ========================================== -->
+  <main class="page-shell" id="main-content">
+
+    <!-- B. HERO / COUPLE SECTION -->
+    <section id="section-hero" class="wedding-section" aria-labelledby="hero-couple-heading">
+      <div class="section-card hero-card reveal is-visible">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <svg class="hero-auspicious-symbol" aria-hidden="true">
+          <use href="#thai-lotus-crest"/>
+        </svg>
+        <p class="hero-subtitle">The Royal Thai Wedding Ceremony</p>
+
+        <!-- Couple Portrait in Golden Kanok Arch Frame -->
+        <div class="hero-portrait-frame">
+          <div class="hero-portrait-inner" id="hero-portrait-container" role="img" aria-label="ภาพคู่บ่าวสาวในชุดไทยจักรีสีทอง">
+            <!-- Populated from WEDDING_CONFIG -->
+          </div>
+          <div class="hero-garland-badge">๑๖ พฤศจิกายน ๒๕๖๘</div>
+        </div>
+
+        <h2 id="hero-couple-heading" class="couple-names-th">
+          <span id="hero-groom-th"></span>
+          <span class="couple-amp">&amp;</span>
+          <span id="hero-bride-th"></span>
+        </h2>
+        <p class="couple-names-en" id="hero-couple-en"></p>
+
+        <div class="hero-date-pill">
+          <span class="hero-date-main" id="hero-date-display"></span>
+          <span class="hero-venue-short" id="hero-venue-display"></span>
+        </div>
+
+        <p class="hero-welcome-quote" id="hero-welcome-quote"></p>
+      </div>
+    </section>
+
+    <!-- C. COUPLE GALLERY SECTION -->
+    <section id="section-gallery" class="wedding-section" aria-labelledby="gallery-heading">
+      <div class="section-card reveal">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <div class="section-header">
+          <span class="section-eyebrow">Portrait Gallery</span>
+          <h2 id="gallery-heading" class="section-title">ภาพความประทับใจบ่าวสาว</h2>
+          <svg class="kanok-divider" aria-hidden="true"><use href="#kanok-divider-sym"/></svg>
+        </div>
+
+        <div id="gallery-grid" class="gallery-grid" role="list">
+          <!-- Populated from WEDDING_CONFIG.gallery -->
+        </div>
+      </div>
+    </section>
+
+    <!-- D. WEDDING INVITATION SECTION (TH / EN) -->
+    <section id="section-invitation" class="wedding-section" aria-labelledby="invitation-heading">
+      <div class="section-card reveal">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <div class="section-header">
+          <span class="section-eyebrow">Formal Invitation</span>
+          <h2 id="invitation-heading" class="section-title">การ์ดเชิญร่วมงานมงคลสมรส</h2>
+          <svg class="kanok-divider" aria-hidden="true"><use href="#kanok-divider-sym"/></svg>
+        </div>
+
+        <!-- Language Switcher Tabs -->
+        <div style="text-align:center;">
+          <div class="lang-tabs" role="tablist" aria-label="เลือกภาษาของการ์ดเชิญ">
+            <button type="button" class="lang-tab-btn" role="tab" id="tab-th" aria-selected="true" aria-controls="invitation-panel" data-lang="th">
+              ภาษาไทย
+            </button>
+            <button type="button" class="lang-tab-btn" role="tab" id="tab-en" aria-selected="false" aria-controls="invitation-panel" data-lang="en">
+              English
+            </button>
+          </div>
+        </div>
+
+        <div id="invitation-panel" class="invitation-content-wrap" role="tabpanel" aria-labelledby="tab-th">
+          <!-- Populated dynamically by active language -->
+        </div>
+      </div>
+    </section>
+
+    <!-- E. WEDDING SCHEDULE SECTION -->
+    <section id="section-schedule" class="wedding-section" aria-labelledby="schedule-heading">
+      <div class="section-card reveal">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <div class="section-header">
+          <span class="section-eyebrow">Ceremony Schedule</span>
+          <h2 id="schedule-heading" class="section-title">กำหนดการพิธีมงคลสมรส</h2>
+          <svg class="kanok-divider" aria-hidden="true"><use href="#kanok-divider-sym"/></svg>
+        </div>
+
+        <div id="schedule-timeline" class="schedule-timeline" role="list">
+          <!-- Populated from WEDDING_CONFIG.schedule -->
+        </div>
+      </div>
+    </section>
+
+    <!-- F. WEDDING LOCATION SECTION -->
+    <section id="section-location" class="wedding-section" aria-labelledby="location-heading">
+      <div class="section-card reveal">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <div class="section-header">
+          <span class="section-eyebrow">Wedding Venue</span>
+          <h2 id="location-heading" class="section-title">สถานที่จัดงานมงคลสมรส</h2>
+          <svg class="kanok-divider" aria-hidden="true"><use href="#kanok-divider-sym"/></svg>
+        </div>
+
+        <div class="venue-visual-frame" id="venue-illustration" role="img" aria-label="ภาพจำลองสถานที่จัดงานแต่งงานเรือนไทยและห้องบอลรูมริมแม่น้ำเจ้าพระยา">
+          <!-- Populated from WEDDING_CONFIG -->
+        </div>
+
+        <div class="venue-details-box">
+          <h3 class="venue-name" id="venue-name"></h3>
+          <p class="venue-hall" id="venue-hall"></p>
+          <p class="venue-address" id="venue-address"></p>
+
+          <div class="venue-action-row">
+            <button type="button" id="venue-map-btn" class="btn-luxury-gold">
+              <span aria-hidden="true">📍</span>
+              <span>เปิดแผนที่นำทาง (Google Maps)</span>
+            </button>
+            <button type="button" id="copy-address-btn" class="btn-outline-gold">
+              <span aria-hidden="true">📋</span>
+              <span id="copy-address-label">คัดลอกที่อยู่</span>
+            </button>
+          </div>
+          <div id="venue-map-drawer" style="display:none;margin-top:14px;padding:14px;background:var(--ivory);border:1px solid var(--antique-gold);border-radius:12px;text-align:left;font-size:0.86rem;">
+            <div style="font-weight:700;color:var(--deep-brown);margin-bottom:6px;">📍 พิกัดและการเดินทาง (Google Maps URL — DEMO)</div>
+            <div id="venue-map-url-text" style="word-break:break-all;color:var(--antique-gold-dark);margin-bottom:10px;font-family:monospace;"></div>
+            <button type="button" id="copy-map-url-btn" class="qr-btn-sm primary-tone" style="width:100%;">
+              <span aria-hidden="true">🔗</span>
+              <span id="copy-map-url-label">คัดลอกลิงก์ Google Maps</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- G. MULTIPLE QR CODE CENTER -->
+    <section id="section-qrcode" class="wedding-section" aria-labelledby="qrcode-heading">
+      <div class="section-card reveal">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <div class="section-header">
+          <span class="section-eyebrow">QR Code Center</span>
+          <h2 id="qrcode-heading" class="section-title">คิวอาร์โค้ดสำหรับแขกผู้มีเกียรติ</h2>
+          <svg class="kanok-divider" aria-hidden="true"><use href="#kanok-divider-sym"/></svg>
+        </div>
+
+        <div id="qr-cards-container" class="qr-cards-stack">
+          <!-- Populated from WEDDING_CONFIG.qrCodes -->
+        </div>
+      </div>
+    </section>
+
+    <!-- H. CLOSING SECTION -->
+    <section id="section-closing" class="wedding-section" aria-labelledby="closing-heading">
+      <div class="section-card closing-card reveal">
+        <svg class="kanok-corner tl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner tr" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner bl" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+        <svg class="kanok-corner br" aria-hidden="true"><use href="#kanok-corner-sym"/></svg>
+
+        <svg class="hero-auspicious-symbol" aria-hidden="true">
+          <use href="#thai-lotus-crest"/>
+        </svg>
+        <h2 id="closing-heading" class="section-eyebrow" style="margin-bottom:12px;">With Gratitude &amp; Respect</h2>
+        <p class="closing-quote" id="closing-message"></p>
+        <div class="closing-signature" id="closing-couple-names"></div>
+        <div class="closing-hashtag" id="closing-hashtag"></div>
+
+        <div class="closing-actions">
+          <button type="button" id="back-to-top-btn" class="btn-outline-gold">
+            <span aria-hidden="true">↑</span>
+            <span>กลับขึ้นด้านบน</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       GALLERY FULLSCREEN LIGHTBOX MODAL
+       ========================================== -->
+  <div id="gallery-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="แสดงภาพขนาดใหญ่" aria-hidden="true">
+    <div class="lightbox-topbar">
+      <span id="lightbox-counter" class="lightbox-counter">1 / 6</span>
+      <button type="button" id="lightbox-close-btn" class="lightbox-icon-btn" aria-label="ปิดหน้าต่างแสดงภาพ">
+        ✕
+      </button>
+    </div>
+
+    <div id="lightbox-touch-stage" class="lightbox-stage">
+      <div id="lightbox-media-box" class="lightbox-media-box"></div>
+    </div>
+
+    <div class="lightbox-footer">
+      <div>
+        <div id="lightbox-title" class="lightbox-caption-title"></div>
+        <div id="lightbox-sub" class="lightbox-caption-sub"></div>
+      </div>
+      <div class="lightbox-controls">
+        <button type="button" id="lightbox-prev-btn" class="lightbox-icon-btn" aria-label="ภาพก่อนหน้า">
+          ‹
+        </button>
+        <button type="button" id="lightbox-next-btn" class="lightbox-icon-btn" aria-label="ภาพถัดไป">
+          ›
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       QR CODE ZOOM MODAL
+       ========================================== -->
+  <div id="qr-zoom-modal" class="qr-zoom-modal" role="dialog" aria-modal="true" aria-labelledby="qr-zoom-title" aria-hidden="true">
+    <div class="qr-zoom-card">
+      <span id="qr-zoom-badge" class="qr-type-badge"></span>
+      <h3 id="qr-zoom-title" class="qr-card-title"></h3>
+      <div id="qr-zoom-svg-box" class="qr-zoom-box"></div>
+      <p id="qr-zoom-meta" class="qr-account-meta"></p>
+      <button type="button" id="qr-zoom-close-btn" class="btn-luxury-gold" style="width:100%;">
+        ปิดหน้าต่างขยาย QR
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       05. MOBILE BOTTOM NAVIGATION
+       ========================================== -->
+  <nav id="mobile-bottom-nav" class="mobile-bottom-nav is-hidden" aria-label="เมนูนำทางหลักด้านล่าง">
+    <ul class="bottom-nav-list">
+      <li>
+        <button type="button" class="bottom-nav-btn is-active" data-target="section-hero">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/>
+          </svg>
+          <span>หน้าแรก</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="bottom-nav-btn" data-target="section-gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 20"/>
+          </svg>
+          <span>ภาพบ่าวสาว</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="bottom-nav-btn" data-target="section-invitation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span>คำเชิญ</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="bottom-nav-btn" data-target="section-schedule">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 7 12 12 15.5 14"/>
+          </svg>
+          <span>กำหนดการ</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="bottom-nav-btn" data-target="section-qrcode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+            <path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 19h3M19 14v3"/>
+          </svg>
+          <span>QR Code</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ==========================================
+       08. CENTRALIZED CONFIGURATION & APPLICATION LOGIC
+       ========================================== -->
+  <script>
+    /**
+     * config/wedding.ts (Centralized Configuration System)
+     * หมายเหตุ: ข้อมูลทั้งหมดด้านล่างเป็นข้อมูลตัวอย่าง (DEMO DATA)
+     * เจ้าของงานสามารถแก้ไขชื่อ วันเวลา สถานที่ รูปภาพ และ QR Code ได้ที่ออบเจกต์นี้จุดเดียว
+     */
+    const WEDDING_CONFIG = {
+      isDemo: true,
+      monogram: "K & P",
+      sealInitials: "K•P",
+      hashtag: "#KawinPimchanok2025",
+      groom: {
+        firstNameTh: "กวินทร์",
+        lastNameTh: "อัครเดโชชัย",
+        fullNameTh: "นายกวินทร์ อัครเดโชชัย",
+        fullNameEn: "Kawin Akaradechochai",
+        nicknameTh: "คุณวิน"
+      },
+      bride: {
+        firstNameTh: "พิมพ์ชนก",
+        lastNameTh: "วรโชติโภคิน",
+        fullNameTh: "นางสาวพิมพ์ชนก วรโชติโภคิน",
+        fullNameEn: "Pimchanok Worachotipokin",
+        nicknameTh: "คุณพิม"
+      },
+      parents: {
+        groomSideTh: [
+          "พลโท สุรศักดิ์ อัครเดโชชัย",
+          "คุณหญิง ดวงแข อัครเดโชชัย"
+        ],
+        brideSideTh: [
+          "นายแพทย์ ธีรภพ วรโชติโภคิน",
+          "นางนวลพรรณ วรโชติโภคิน"
+        ],
+        groomSideEn: [
+          "Lt. Gen. Surasak Akaradechochai",
+          "Khunying Duangkhae Akaradechochai"
+        ],
+        brideSideEn: [
+          "Dr. Theeraphop Worachotipokin",
+          "Mrs. Nuanphan Worachotipokin"
+        ]
+      },
+      date: {
+        fullDateTh: "วันอาทิตย์ที่ ๑๖ พฤศจิกายน พ.ศ. ๒๕๖๘",
+        fullDateEn: "Sunday, 16 November 2025",
+        auspiciousNoteTh: "ตรงกับแรม ๑๑ ค่ำ เดือน ๑๒ ปีมะเส็ง",
+        timeSummaryTh: "เวลา ๐๗:๐๐ น. — ๑๔:๐๐ น."
+      },
+      venue: {
+        nameTh: "เรือนไทยสยามเทวาลัย โรงแรมเดอะ สยาม ริเวอร์ไซด์ กรุงเทพฯ (ข้อมูลตัวอย่าง)",
+        hallTh: "ห้องแกรนด์ สุวรรณภูมิ บอลรูม ชั้น ๒ (ริมแม่น้ำเจ้าพระยา)",
+        nameEn: "Siam Thewalai Thai Pavilion, The Siam Riverside Hotel Bangkok (Demo Venue)",
+        addressTh: "เลขที่ ๒๙๙ ถนนเจริญกรุง แขวงบางรัก เขตบางรัก กรุงเทพมหานคร ๑๐๕๐๐",
+        googleMapsUrl: "about:invalid#zPythonSafez"
+      },
+      welcomeQuoteTh: "ด้วยความรักและความผูกพันของสองครอบครัว ขอเรียนเชิญท่านร่วมเป็นเกียรติและเป็นสักขีพยานในพิธีมงคลสมรสตามประเพณีไทยโบราณ",
+      invitation: {
+        th: {
+          headerTitle: "มีความยินดีขอเรียนเชิญเพื่อเป็นเกียรติเนื่องในพิธีมงคลสมรส",
+          groomParentsLabel: "บิดา - มารดาฝ่ายเจ้าบ่าว",
+          brideParentsLabel: "บิดา - มารดาฝ่ายเจ้าสาว",
+          betweenLabel: "ระหว่าง",
+          ceremonyNote: "ณ เรือนไทยสยามเทวาลัย และห้องแกรนด์ สุวรรณภูมิ บอลรูม\nวันอาทิตย์ที่ ๑๖ พฤศจิกายน พ.ศ. ๒๕๖๘\n(ตรงกับแรม ๑๑ ค่ำ เดือน ๑๒)",
+          dressCode: "การแต่งกาย: ชุดไทยพระราชนิยม / ชุดผ้าไทยโทนสีทอง ครีม งาช้าง หรือน้ำตาลทอง",
+          apologyNote: "(ขออภัยหากมิได้มาเรียนเชิญด้วยตนเอง)"
+        },
+        en: {
+          headerTitle: "Together with their parents, request the honour of your presence at the Traditional Thai Wedding Ceremony of",
+          groomParentsLabel: "Parents of the Groom",
+          brideParentsLabel: "Parents of the Bride",
+          betweenLabel: "Uniting in Marriage",
+          ceremonyNote: "At Siam Thewalai Thai Pavilion & Grand Suvarnabhumi Ballroom\nSunday, 16 November 2025\nReception follows at 11:30 AM",
+          dressCode: "Dress Code: Traditional Thai Attire or Formal Wear in Antique Gold, Champagne, Ivory & Warm Cream",
+          apologyNote: "(We sincerely apologize if we could not deliver this invitation in person)"
+        }
+      },
+      // Schedule items: Any item with empty time or title is automatically hidden
+      schedule: [
+        {
+          time: "๐๗:๐๐ น. (07:00 AM)",
+          title: "ลงทะเบียนและต้อนรับแขกผู้มีเกียรติ",
+          description: "ร่วมลงนามอวยพรในสมุดมงคล และรับของชำร่วยพวงมาลัยดอกมะลิหอม ณ โถงต้อนรับเรือนไทย",
+          icon: "lotus"
+        },
+        {
+          time: "๐๗:๓๙ น. (07:39 AM)",
+          title: "พิธีเจริญพระพุทธมนต์ (พิธีสงฆ์)",
+          description: "บ่าวสาวและครอบครัวร่วมจุดธูปเทียนบูชาพระรัตนตรัย และถวายภัตตาหารเช้าแด่พระภิกษุสงฆ์ ๙ รูป",
+          icon: "monk"
+        },
+        {
+          time: "๐๘:๒๙ น. (08:29 AM)",
+          title: "พิธีแห่ขันหมากเอก - ขันหมากโท",
+          description: "ขบวนขันหมากประเพณีไทยเคลื่อนผ่านประตูเงิน ประตูทอง และประตูนาค พร้อมพิธีสู่ขอและตรวจนับสินสอดทองหมั้น",
+          icon: "parade"
+        },
+        {
+          time: "๐๙:๐๙ น. (09:09 AM)",
+          title: "พิธีสวมแหวนหมั้น",
+          description: "ฤกษ์มงคลสวมแหวนหมั้น และพิธีไหว้ผู้ใหญ่รับพรและซองมงคลจากบิดามารดาและญาติผู้ใหญ่ทั้งสองฝ่าย",
+          icon: "ring"
+        },
+        {
+          time: "๐๙:๔๙ น. (09:49 AM)",
+          title: "พิธีหลั่งน้ำพระพุทธมนต์และประสาทพร (รดน้ำสังข์)",
+          description: "ประธานในพิธีสวมมงคลแฝด เจิมหน้าผาก และแขกผู้มีเกียรติร่วมหลั่งน้ำสังข์อวยพรคู่บ่าวสาว",
+          icon: "conch"
+        },
+        {
+          time: "๑๑:๓๐ น. (11:30 AM)",
+          title: "งานเลี้ยงฉลองมงคลสมรส (ช่วงกลางวัน)",
+          description: "ร่วมรับประทานอาหารกลางวันแบบโต๊ะไทยประณีต ณ ห้องแกรนด์ สุวรรณภูมิ บอลรูม ชั้น ๒",
+          icon: "banquet"
+        },
+        // Example of an empty schedule entry to verify automatic hiding rule
+        {
+          time: "",
+          title: "",
+          description: ""
+        }
+      ],
+      gallery: [
+        {
+          id: "couple-01",
+          title: "ชุดไทยจักรีสีทองโบราณ",
+          subtitle: "ภาพพรีเวดดิ้ง ณ เรือนไทยริมน้ำ (ภาพตัวอย่างชุดที่ ๑)",
+          theme: "chakri",
+          alt: "ภาพคู่บ่าวสาวในชุดไทยจักรีปักดิ้นทองประณีต"
+        },
+        {
+          id: "couple-02",
+          title: "ชุดไทยศิวาลัยและราชปะแตน",
+          subtitle: "ความสง่างามแห่งงานประณีตศิลป์ไทย (ภาพตัวอย่างชุดที่ ๒)",
+          theme: "siwalai",
+          alt: "ภาพคู่บ่าวสาวในชุดไทยศิวาลัยสีงาช้างและทอง"
+        },
+        {
+          id: "couple-03",
+          title: "พวงมาลัยคล้องใจดอกมะลิสด",
+          subtitle: "สัญลักษณ์แห่งความรักบริสุทธิ์และความกตัญญู (ภาพตัวอย่างชุดที่ ๓)",
+          theme: "garland",
+          alt: "ภาพพวงมาลัยบ่าวสาวร้อยด้วยดอกมะลิและดอกรัก"
+        },
+        {
+          id: "couple-04",
+          title: "บรรยากาศพิธีรดน้ำสังข์",
+          subtitle: "เครื่องเบญจรงค์และสังข์เลี่ยมทองคำ (ภาพตัวอย่างชุดที่ ๔)",
+          theme: "conch",
+          alt: "ภาพพานพุ่มและสังข์มงคลเลี่ยมทองคำในพิธีไทย"
+        },
+        {
+          id: "couple-05",
+          title: "ชุดไทยประยุกต์ร่วมสมัย",
+          subtitle: "ผสานความอ่อนช้อยของผ้าไหมยกดอกลำพูน (ภาพตัวอย่างชุดที่ ๕)",
+          theme: "modern",
+          alt: "ภาพคู่บ่าวสาวในชุดผ้าไหมยกดอกลำพูนสีแชมเปญโกลด์"
+        },
+        {
+          id: "couple-06",
+          title: "สัตตบงกชและลายกนกทอง",
+          subtitle: "ดอกบัวหลวงสีชมพูทองบูชาพระรัตนตรัย (ภาพตัวอย่างชุดที่ ๖)",
+          theme: "lotus",
+          alt: "ภาพดอกบัวหลวงและลวดลายไทยประณีต"
+        }
+      ],
+      // QR Code list: items without payload are automatically hidden
+      qrCodes: [
+        {
+          id: "qr-promptpay",
+          typeBadge: "๑. QR พร้อมเพย์ (PromptPay)",
+          title: "ร่วมส่งมอบความปรารถนาดีและของขวัญมงคลสมรส",
+          description: "สำหรับแขกผู้มีเกียรติที่ประสงค์ร่วมอวยพรผ่านบัญชีพร้อมเพย์ของคู่บ่าวสาว (ข้อมูลตัวอย่าง)",
+          accountMeta: "พร้อมเพย์: 089-000-2568 | ชื่อบัญชี: นายกวินทร์ และ น.ส.พิมพ์ชนก (DEMO)",
+          payload: "00020101021129370016A000000677010111011300668900025685802TH53037646304DEMO",
+          copyValue: "0890002568",
+          copyLabel: "คัดลอกเบอร์พร้อมเพย์"
+        },
+        {
+          id: "qr-maps",
+          typeBadge: "๒. QR แผนที่สถานที่จัดงาน (Google Maps)",
+          title: "สแกนเพื่อนำทางมายังเรือนไทยสยามเทวาลัย",
+          description: "เปิดเส้นทาง Google Maps ไปยังโรงแรมเดอะ สยาม ริเวอร์ไซด์ กรุงเทพฯ",
+          accountMeta: "พิกัด: ถนนเจริญกรุง เขตบางรัก กรุงเทพมหานคร",
+          payload: "about:invalid#zPythonSafez",
+          copyValue: "about:invalid#zPythonSafez",
+          copyLabel: "คัดลอกลิงก์แผนที่"
+        },
+        {
+          id: "qr-charity",
+          typeBadge: "๓. QR ร่วมทำบุญการกุศล (Charity)",
+          title: "ร่วมสมทบทุนมูลนิธิโรงพยาบาลเพื่อผู้ป่วยยากไร้",
+          description: "บ่าวสาวขอเชิญร่วมแบ่งปันกุศลผลบุญเนื่องในวันมงคลสมรส (ข้อมูลตัวอย่าง)",
+          accountMeta: "มูลนิธิเพื่อการแพทย์และสาธารณกุศล (บัญชีตัวอย่าง DEMO)",
+          payload: "about:invalid#zPythonSafez",
+          copyValue: "about:invalid#zPythonSafez",
+          copyLabel: "คัดลอกลิงก์มูลนิธิ"
+        },
+        {
+          id: "qr-contact",
+          typeBadge: "๔. QR เว็บไซต์และติดต่อผู้ประสานงาน",
+          title: "ยืนยันการร่วมงานและสอบถามรายละเอียดเพิ่มเติม",
+          description: "ติดต่อผู้ประสานงานฝ่ายต้อนรับและสำรองที่จอดรถพิเศษ",
+          accountMeta: "ผู้ประสานงาน: คุณภัทร (โทร. 081-000-9999 — ข้อมูลตัวอย่าง)",
+          payload: "TEL:+66810009999",
+          copyValue: "0810009999",
+          copyLabel: "คัดลอกเบอร์ติดต่อ"
+        }
+      ],
+      closingMessageTh: "ขอบพระคุณแขกผู้มีเกียรติทุกท่านที่สละเวลามาร่วมเป็นสักขีพยานและประสาทพรอันเป็นสิริมงคลยิ่ง ขออำนาจคุณพระศรีรัตนตรัยดลบันดาลให้ทุกท่านประสบแต่ความสุข ความเจริญรุ่งเรืองสืบไป"
+    };
+
+    /**
+     * High-Craft Traditional Thai Art SVG Illustrations (WebP/SVG crisp vector art)
+     * Ensures 100% instant loading, zero broken images, and authentic Thai visual harmony
+     */
+    function createThaiIllustrationSVG(theme, groomName, brideName) {
+      if (theme === "hero" || theme === "chakri") {
+        return `
+          <svg viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ภาพศิลปะคู่บ่าวสาวในชุดไทยจักรีสีทอง">
+            <defs>
+              <linearGradient id="bgChakri" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFFDF7"/>
+                <stop offset="55%" stop-color="#F6E8C8"/>
+                <stop offset="100%" stop-color="#E7CE98"/>
+              </linearGradient>
+              <radialGradient id="haloGold" cx="50%" cy="38%" r="48%">
+                <stop offset="0%" stop-color="#FFFDF8" stop-opacity="0.95"/>
+                <stop offset="65%" stop-color="#D6B56D" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#B88635" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="360" height="460" fill="url(#bgChakri)"/>
+            <circle cx="180" cy="175" r="145" fill="url(#haloGold)"/>
+            <!-- Ornate Thai Arch -->
+            <path d="M26 440 V170 C26 78 96 24 180 24 C264 24 334 78 334 170 V440" fill="none" stroke="#B88635" stroke-width="2.5"/>
+            <path d="M36 440 V174 C36 88 102 36 180 36 C258 36 324 88 324 174 V440" fill="none" stroke="#D6B56D" stroke-width="1.2" stroke-dasharray="5 4"/>
+            <!-- Hanging Floral Garland (พวงมาลัย) -->
+            <path d="M36 95 Q180 155 324 95" fill="none" stroke="#B88635" stroke-width="2"/>
+            <circle cx="180" cy="126" r="7" fill="#FFF9EC" stroke="#B88635" stroke-width="2"/>
+            <path d="M180 133 L175 154 L180 162 L185 154 Z" fill="#B88635"/>
+
+            <!-- Groom Silhouette in Raj Pattern & Gold Chong Kraben -->
+            <g transform="translate(88, 128)">
+              <circle cx="46" cy="44" r="24" fill="#58391F"/>
+              <path d="M22 40 C22 22 70 22 70 40" fill="#3D2612"/>
+              <!-- Raj Jacket -->
+              <path d="M10 118 C10 82 26 72 46 72 C66 72 82 82 82 118 L86 215 L6 215 Z" fill="#FFFDF7" stroke="#B88635" stroke-width="2"/>
+              <line x1="46" y1="74" x2="46" y2="210" stroke="#B88635" stroke-width="1.8"/>
+              <circle cx="46" cy="92" r="2.6" fill="#B88635"/>
+              <circle cx="46" cy="112" r="2.6" fill="#B88635"/>
+              <circle cx="46" cy="132" r="2.6" fill="#B88635"/>
+              <!-- Gold Sash -->
+              <path d="M16 80 L76 168 L68 180 L10 92 Z" fill="#D6B56D" opacity="0.88" stroke="#B88635" stroke-width="1"/>
+              <!-- Auspicious Mongkol Headband -->
+              <ellipse cx="46" cy="26" rx="24" ry="5" fill="none" stroke="#FFF9EC" stroke-width="3"/>
+              <ellipse cx="46" cy="26" rx="24" ry="5" fill="none" stroke="#B88635" stroke-width="1.2"/>
+            </g>
+
+            <!-- Bride Silhouette in Thai Chakri Sabai -->
+            <g transform="translate(178, 140)">
+              <circle cx="46" cy="42" r="22" fill="#58391F"/>
+              <!-- Golden Hair Pin (รัดเกล้า/ปิ่นทอง) -->
+              <path d="M34 18 L46 4 L58 18 Z" fill="#B88635" stroke="#FFF9EC" stroke-width="1"/>
+              <!-- Sabai Draped Dress -->
+              <path d="M14 110 C16 78 30 68 46 68 C62 68 76 78 78 110 L84 205 L8 205 Z" fill="#E8CA86" stroke="#B88635" stroke-width="2"/>
+              <!-- Embroidered Gold Sabai Diagonal -->
+              <path d="M16 74 L74 74 L58 198 L8 165 Z" fill="#B88635" opacity="0.9"/>
+              <path d="M24 82 L66 140 M22 104 L60 158 M20 126 L54 174" stroke="#FFF9EC" stroke-width="1.3" opacity="0.75"/>
+              <!-- Auspicious Mongkol Headband -->
+              <ellipse cx="46" cy="26" rx="22" ry="4.5" fill="none" stroke="#FFF9EC" stroke-width="3"/>
+              <ellipse cx="46" cy="26" rx="22" ry="4.5" fill="none" stroke="#B88635" stroke-width="1.2"/>
+            </g>
+
+            <!-- Sacred Thread Linking Mongkols (สายสิญจน์มงคลแฝด) -->
+            <path d="M134 154 Q180 128 224 166" fill="none" stroke="#FFF9EC" stroke-width="2.5"/>
+            <path d="M134 154 Q180 128 224 166" fill="none" stroke="#B88635" stroke-width="1" stroke-dasharray="3 3"/>
+
+            <!-- Bottom Lotus & Kanok Base -->
+            <path d="M0 340 Q180 315 360 340 L360 460 L0 460 Z" fill="#58391F"/>
+            <path d="M0 344 Q180 319 360 344" fill="none" stroke="#D6B56D" stroke-width="2.5"/>
+            <text x="180" y="388" text-anchor="middle" fill="#F5EBD6" font-family="Noto Serif Thai, serif" font-size="16" font-weight="600">
+              ${groomName || "กวินทร์"} &amp; ${brideName || "พิมพ์ชนก"}
+            </text>
+            <text x="180" y="414" text-anchor="middle" fill="#D6B56D" font-family="Cormorant Garamond, serif" font-size="13" letter-spacing="3">
+              THE GOLDEN THAI WEDDING
+            </text>
+          </svg>
+        `;
+      }
+
+      if (theme === "garland") {
+        return `
+          <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="480" fill="#FAF0DA"/>
+            <rect x="18" y="18" width="324" height="444" rx="16" fill="none" stroke="#B88635" stroke-width="2"/>
+            <!-- Twin Wedding Phuang Malai (พวงมาลัยบ่าวสาว) -->
+            <circle cx="135" cy="195" r="58" fill="none" stroke="#FFFDF9" stroke-width="22"/>
+            <circle cx="135" cy="195" r="58" fill="none" stroke="#D6B56D" stroke-width="2" stroke-dasharray="6 4"/>
+            <circle cx="225" cy="195" r="58" fill="none" stroke="#FFFDF9" stroke-width="22"/>
+            <circle cx="225" cy="195" r="58" fill="none" stroke="#D6B56D" stroke-width="2" stroke-dasharray="6 4"/>
+            <!-- Uba Tassels -->
+            <path d="M135 253 V335 M118 250 L110 322 M152 250 L160 322" stroke="#B88635" stroke-width="3" stroke-linecap="round"/>
+            <path d="M225 253 V335 M208 250 L200 322 M242 250 L250 322" stroke="#B88635" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="135" cy="340" r="8" fill="#B88635"/>
+            <circle cx="225" cy="340" r="8" fill="#B88635"/>
+            <text x="180" y="405" text-anchor="middle" fill="#58391F" font-family="Noto Serif Thai, serif" font-size="16" font-weight="600">มาลัยคล้องใจดอกมะลิซ้อน</text>
+          </svg>
+        `;
+      }
+
+      if (theme === "conch") {
+        return `
+          <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="480" fill="#F5EBD6"/>
+            <rect x="18" y="18" width="324" height="444" rx="16" fill="none" stroke="#B88635" stroke-width="2"/>
+            <!-- Golden Phan Tray & Sacred Conch (สังข์มงคลเลี่ยมทอง) -->
+            <ellipse cx="180" cy="210" rx="76" ry="38" fill="#FFFDF7" stroke="#B88635" stroke-width="4"/>
+            <path d="M115 210 C145 175 215 175 245 210 C215 235 145 235 115 210 Z" fill="#EAD8AC" stroke="#B88635" stroke-width="2"/>
+            <!-- Golden Phan Pedestal -->
+            <path d="M100 250 H260 L230 285 H130 Z" fill="#B88635"/>
+            <path d="M150 285 H210 L225 335 H135 Z" fill="#D6B56D" stroke="#B88635" stroke-width="2"/>
+            <rect x="115" y="335" width="130" height="14" rx="6" fill="#58391F"/>
+            <text x="180" y="405" text-anchor="middle" fill="#58391F" font-family="Noto Serif Thai, serif" font-size="16" font-weight="600">สังข์มงคลหลั่งน้ำพระพุทธมนต์</text>
+          </svg>
+        `;
+      }
+
+      if (theme === "lotus") {
+        return `
+          <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="480" fill="#FFF9EC"/>
+            <rect x="18" y="18" width="324" height="444" rx="16" fill="none" stroke="#B88635" stroke-width="2"/>
+            <!-- Sacred Thai Lotus (ดอกบัวสัตตบงกช) -->
+            <g transform="translate(180, 215)">
+              <path d="M0 -95 C28 -45 34 10 0 55 C-34 10 -28 -45 0 -95 Z" fill="#E8CA86" stroke="#B88635" stroke-width="2.5"/>
+              <path d="M0 55 C42 15 72 -15 78 -60 C78 -5 48 45 0 58 Z" fill="#D6B56D" stroke="#B88635" stroke-width="2"/>
+              <path d="M0 55 C-42 15 -72 -15 -78 -60 C-78 -5 -48 45 0 58 Z" fill="#D6B56D" stroke="#B88635" stroke-width="2"/>
+              <path d="M0 58 C55 38 95 10 105 -22 C92 32 52 62 0 64 Z" fill="#B88635" opacity="0.85"/>
+              <path d="M0 58 C-55 38 -95 10 -105 -22 C-92 32 -52 62 0 64 Z" fill="#B88635" opacity="0.85"/>
+            </g>
+            <text x="180" y="405" text-anchor="middle" fill="#58391F" font-family="Noto Serif Thai, serif" font-size="16" font-weight="600">สัตตบงกชและลายกนกทอง</text>
+          </svg>
+        `;
+      }
+
+      // Default Siwalai / Modern Thai Silk portrait card
+      return `
+        <svg viewBox="0 0 360 480" xmlns="http://www.w3.org/2000/svg">
+          <rect width="360" height="480" fill="#F8EED8"/>
+          <rect x="18" y="18" width="324" height="444" rx="16" fill="none" stroke="#B88635" stroke-width="2"/>
+          <circle cx="180" cy="195" r="82" fill="#FFF9EC" stroke="#B88635" stroke-width="2.5"/>
+          <!-- Thai Prajamyam Flower -->
+          <g transform="translate(180, 195)">
+            <path d="M0 -56 L16 -16 L56 0 L16 16 L0 56 L-16 16 L-56 0 L-16 -16 Z" fill="#D6B56D" stroke="#B88635" stroke-width="2"/>
+            <circle cx="0" cy="0" r="14" fill="#B88635"/>
+          </g>
+          <text x="180" y="395" text-anchor="middle" fill="#58391F" font-family="Noto Serif Thai, serif" font-size="16" font-weight="600">
+            ${theme === "siwalai" ? "ชุดไทยศิวาลัยและราชปะแตน" : "ผ้าไหมยกดอกลำพูนสีทอง"}
+          </text>
+        </svg>
+      `;
+    }
+
+    function createVenueSVG() {
+      return `
+        <svg viewBox="0 0 600 375" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skyGolden" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFF9EC"/>
+              <stop offset="65%" stop-color="#F3E1BC"/>
+              <stop offset="100%" stop-color="#DFC184"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="375" fill="url(#skyGolden)"/>
+          <circle cx="460" cy="88" r="42" fill="#FFFDF7" opacity="0.85"/>
+          <!-- Traditional Thai Pavilion Roof (เรือนไทยริมน้ำ) -->
+          <polygon points="300,52 125,165 475,165" fill="#58391F" stroke="#B88635" stroke-width="3"/>
+          <polygon points="300,72 155,165 445,165" fill="#B88635" opacity="0.85"/>
+          <!-- Chofa Finial -->
+          <path d="M300 22 L292 54 L308 54 Z" fill="#B88635"/>
+          <!-- Pavilion Pillars -->
+          <rect x="165" y="165" width="14" height="95" fill="#FFF9EC" stroke="#B88635" stroke-width="1.5"/>
+          <rect x="225" y="165" width="14" height="95" fill="#FFF9EC" stroke="#B88635" stroke-width="1.5"/>
+          <rect x="361" y="165" width="14" height="95" fill="#FFF9EC" stroke="#B88635" stroke-width="1.5"/>
+          <rect x="421" y="165" width="14" height="95" fill="#FFF9EC" stroke="#B88635" stroke-width="1.5"/>
+          <rect x="135" y="260" width="330" height="22" fill="#58391F" stroke="#D6B56D" stroke-width="2"/>
+          <!-- Chao Phraya River Reflections -->
+          <rect x="0" y="282" width="600" height="93" fill="#4A2F18"/>
+          <path d="M80 305 H520 M140 326 H460 M190 348 H410" stroke="#D6B56D" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+        </svg>
+      `;
+    }
+
+    /**
+     * Real Standards-Compliant QR Code Version 3 / 4 Matrix Generator (ISO/IEC 18004 Byte Mode)
+     * Generates a genuine scannable SVG QR Code with proper Finder Patterns, Alignment Pattern,
+     * Timing Patterns, Format Info, Data bits, and Reed-Solomon ECC with a crisp Quiet Zone.
+     */
+    const QRGenerator = (function() {
+      // GF(256) math for Reed-Solomon Error Correction (Level L)
+      const EXP = new Uint8Array(512);
+      const LOG = new Uint8Array(256);
+      (function initGF() {
+        let x = 1;
+        for (let i = 0; i < 255; i++) {
+          EXP[i] = x;
+          LOG[x] = i;
+          x <<= 1;
+          if (x & 0x100) x ^= 0x11d;
+        }
+        for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
+      })();
+
+      function rsEncode(data, ecLen) {
+        let gen = [1];
+        for (let i = 0; i < ecLen; i++) {
+          const next = new Array(gen.length + 1).fill(0);
+          for (let j = 0; j < gen.length; j++) {
+            next[j] ^= gen[j];
+            next[j + 1] ^= EXP[LOG[gen[j]] + i];
+          }
+          gen = next;
+        }
+        const msg = new Uint8Array(data.length + ecLen);
+        msg.set(data, 0);
+        for (let i = 0; i < data.length; i++) {
+          const coef = msg[i];
+          if (coef !== 0) {
+            for (let j = 1; j < gen.length; j++) {
+              msg[i + j] ^= EXP[LOG[gen[j]] + LOG[coef]];
+            }
+          }
+        }
+        return msg.slice(data.length);
+      }
+
+      // Version table for byte mode, ECC Level L (versions 2 to 5)
+      const VERSIONS = {
+        2: { size: 25, dataCw: 34, ecCw: 10, align: [6, 18] },
+        3: { size: 29, dataCw: 55, ecCw: 15, align: [6, 22] },
+        4: { size: 33, dataCw: 80, ecCw: 20, align: [6, 26] },
+        5: { size: 37, dataCw: 108, ecCw: 26, align: [6, 30] }
+      };
+
+      function pickVersion(byteLen) {
+        for (let v = 2; v <= 5; v++) {
+          if (byteLen + 2 <= VERSIONS[v].dataCw) return v;
+        }
+        return 5;
+      }
+
+      function createMatrix(text) {
+        const bytes = new TextEncoder().encode(text);
+        const ver = pickVersion(bytes.length);
+        const info = VERSIONS[ver];
+        const size = info.size;
+
+        // Build bit stream: Mode 0100 (Byte), 8-bit length, payload, terminator, pad bytes
+        const bits = [];
+        const pushBits = (val, len) => {
+          for (let i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
+        };
+        pushBits(0b0100, 4);
+        const clippedLen = Math.min(bytes.length, info.dataCw - 2);
+        pushBits(clippedLen, 8);
+        for (let i = 0; i < clippedLen; i++) pushBits(bytes[i], 8);
+        for (let i = 0; i < 4 && bits.length < info.dataCw * 8; i++) bits.push(0);
+        while (bits.length % 8 !== 0) bits.push(0);
+
+        const dataCw = new Uint8Array(info.dataCw);
+        for (let i = 0; i < bits.length / 8; i++) {
+          let b = 0;
+          for (let j = 0; j < 8; j++) b = (b << 1) | bits[i * 8 + j];
+          dataCw[i] = b;
+        }
+        const pads = [0xEC, 0x11];
+        for (let i = bits.length / 8, p = 0; i < info.dataCw; i++, p ^= 1) {
+          dataCw[i] = pads[p];
+        }
+
+        const ecCw = rsEncode(dataCw, info.ecCw);
+        const allBits = [];
+        for (let i = 0; i < dataCw.length; i++) pushBitsTo(allBits, dataCw[i], 8);
+        for (let i = 0; i < ecCw.length; i++) pushBitsTo(allBits, ecCw[i], 8);
+
+        function pushBitsTo(arr, val, len) {
+          for (let i = len - 1; i >= 0; i--) arr.push((val >> i) & 1);
+        }
+
+        const grid = Array.from({ length: size }, () => new Int8Array(size).fill(-1));
+        const reserved = Array.from({ length: size }, () => new Uint8Array(size));
+
+        function setModule(r, c, val) {
+          if (r >= 0 && r < size && c >= 0 && c < size) {
+            grid[r][c] = val ? 1 : 0;
+            reserved[r][c] = 1;
+          }
+        }
+
+        function drawFinder(r0, c0) {
+          for (let dr = -1; dr <= 7; dr++) {
+            for (let dc = -1; dc <= 7; dc++) {
+              const r = r0 + dr, c = c0 + dc;
+              if (r < 0 || r >= size || c < 0 || c >= size) continue;
+              const inOuter = dr >= 0 && dr <= 6 && dc >= 0 && dc <= 6;
+              const inRing = dr === 0 || dr === 6 || dc === 0 || dc === 6;
+              const inCore = dr >= 2 && dr <= 4 && dc >= 2 && dc <= 4;
+              setModule(r, c, inOuter && (inRing || inCore));
+            }
+          }
+        }
+
+        drawFinder(0, 0);
+        drawFinder(0, size - 7);
+        drawFinder(size - 7, 0);
+
+        // Alignment pattern
+        const aPos = info.align[1];
+        for (let dr = -2; dr <= 2; dr++) {
+          for (let dc = -2; dc <= 2; dc++) {
+            const onBorder = Math.abs(dr) === 2 || Math.abs(dc) === 2;
+            const onCenter = dr === 0 && dc === 0;
+            setModule(aPos + dr, aPos + dc, onBorder || onCenter);
+          }
+        }
+
+        // Timing patterns
+        for (let i = 8; i < size - 8; i++) {
+          setModule(6, i, i % 2 === 0);
+          setModule(i, 6, i % 2 === 0);
+        }
+
+        // Dark module & reserve format info areas
+        setModule(size - 8, 8, 1);
+        for (let i = 0; i < 9; i++) {
+          if (!reserved[8][i]) reserved[8][i] = 1;
+          if (!reserved[i][8]) reserved[i][8] = 1;
+        }
+        for (let i = 0; i < 8; i++) {
+          reserved[8][size - 1 - i] = 1;
+          reserved[size - 1 - i][8] = 1;
+        }
+
+        // Place data bits with mask 0 ((r + c) % 2 === 0)
+        let bitIdx = 0;
+        let up = true;
+        for (let right = size - 1; right >= 1; right -= 2) {
+          if (right === 6) right = 5;
+          for (let vert = 0; vert < size; vert++) {
+            const r = up ? size - 1 - vert : vert;
+            for (let j = 0; j < 2; j++) {
+              const c = right - j;
+              if (!reserved[r][c]) {
+                const bit = bitIdx < allBits.length ? allBits[bitIdx++] : 0;
+                const mask = (r + c) % 2 === 0 ? 1 : 0;
+                grid[r][c] = bit ^ mask;
+              }
+            }
+          }
+          up = !up;
+        }
+
+        // Format info for ECC Level L (01) + Mask 0 (000) -> 0x77c4
+        const fmt = 0x77c4;
+        const fmtCoords1 = [
+          [8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],
+          [7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]
+        ];
+        for (let i = 0; i < 15; i++) {
+          const bit = (fmt >> i) & 1;
+          const [r, c] = fmtCoords1[i];
+          grid[r][c] = bit;
+        }
+        for (let i = 0; i < 7; i++) {
+          grid[size - 1 - i][8] = (fmt >> i) & 1;
+        }
+        for (let i = 7; i < 15; i++) {
+          grid[8][size - 15 + i] = (fmt >> i) & 1;
+        }
+
+        return grid;
+      }
+
+      function toSVG(text) {
+        const matrix = createMatrix(text);
+        const n = matrix.length;
+        const quiet = 2;
+        const total = n + quiet * 2;
+        let path = "";
+        for (let r = 0; r < n; r++) {
+          for (let c = 0; c < n; c++) {
+            if (matrix[r][c] === 1) {
+              path += `M${c + quiet},${r + quiet}h1v1h-1z`;
+            }
+          }
+        }
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${total} ${total}" role="img" aria-label="QR Code">
+          <rect width="${total}" height="${total}" fill="#FFFFFF"/>
+          <path d="${path}" fill="#2B180A"/>
+        </svg>`;
+      }
+
+      return { toSVG };
+    })();
+
+    /**
+     * Gentle Web Audio Synthesizer for Traditional Thai Chime / Ranat Ek Greeting
+     * Muted by default, plays only when user explicitly toggles sound or opens envelope with sound enabled.
+     */
+    const ThaiSoundEngine = (function() {
+      let enabled = false;
+      let ctx = null;
+
+      function ensureCtx() {
+        if (!ctx) {
+          const AudioCtx = window.AudioContext || window.webkitAudioContext;
+          if (AudioCtx) ctx = new AudioCtx();
+        }
+        if (ctx && ctx.state === "suspended") {
+          ctx.resume();
+        }
+      }
+
+      function playAuspiciousChime() {
+        if (!enabled) return;
+        try {
+          ensureCtx();
+          if (!ctx) return;
+          // Traditional Thai pentatonic chord (C5, D5, E5, G5, A5, C6)
+          const notes = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50];
+          const now = ctx.currentTime;
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(freq, now + idx * 0.11);
+            gain.gain.setValueAtTime(0.0001, now + idx * 0.11);
+            gain.gain.exponentialRampToValueAtTime(0.08, now + idx * 0.11 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.11 + 1.1);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.11);
+            osc.stop(now + idx * 0.11 + 1.15);
+          });
+        } catch (e) {
+          // Ignore audio context restriction errors
+        }
+      }
+
+      function toggle() {
+        enabled = !enabled;
+        if (enabled) playAuspiciousChime();
+        return enabled;
+      }
+
+      function isEnabled() {
+        return enabled;
+      }
+
+      return { toggle, playAuspiciousChime, isEnabled };
+    })();
+
+    /**
+     * Schedule Icon SVG Helper
+     */
+    function getScheduleIconSVG(iconName) {
+      switch (iconName) {
+        case "monk":
+          return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c2.5 3 4 6 0 11-4-5-2.5-8 0-11z"/><path d="M5 19h14M7 16h10"/></svg>`;
+        case "parade":
+          return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15 8l6 1-4.5 4.2L17.5 19 12 16l-5.5 3 1-5.8L3 9l6-1z"/></svg>`;
+        case "ring":
+          return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="13" r="5"/><circle cx="15" cy="13" r="5"/><path d="M12 4l2 3h-4l2-3z"/></svg>`;
+        case "conch":
+          return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3C7 3 3 7 3 12s4 9 9 9c4 0 8-3 8-7 0-3-2.5-5-5-5-2 0-3.5 1.5-3.5 3.5S13 16 14.5 16"/></svg>`;
+        case "banquet":
+          return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 15v6M6 3h12l-1.5 7.5a4.5 4.5 0 0 1-9 0L6 3z"/></svg>`;
+        default:
+          return `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c3 4 4 7 0 12-4-5-3-8 0-12z"/><path d="M4 17c4 2 12 2 16 0"/></svg>`;
+      }
+    }
+
+    /**
+     * Render All Sections from WEDDING_CONFIG
+     */
+    function renderWeddingApp() {
+      // 1. Envelope Screen Data
+      document.getElementById("env-monogram").textContent = WEDDING_CONFIG.monogram;
+      document.getElementById("env-seal-initials").textContent = WEDDING_CONFIG.sealInitials;
+      document.getElementById("env-couple-names").textContent =
+        `${WEDDING_CONFIG.groom.firstNameTh} & ${WEDDING_CONFIG.bride.firstNameTh}`;
+      document.getElementById("env-wedding-date").textContent = WEDDING_CONFIG.date.fullDateTh;
+
+      // 2. Hero Section
+      document.getElementById("hero-portrait-container").innerHTML = createThaiIllustrationSVG(
+        "hero",
+        WEDDING_CONFIG.groom.firstNameTh,
+        WEDDING_CONFIG.bride.firstNameTh
+      );
+      document.getElementById("hero-groom-th").textContent = WEDDING_CONFIG.groom.fullNameTh;
+      document.getElementById("hero-bride-th").textContent = WEDDING_CONFIG.bride.fullNameTh;
+      document.getElementById("hero-couple-en").textContent =
+        `${WEDDING_CONFIG.groom.fullNameEn} & ${WEDDING_CONFIG.bride.fullNameEn}`;
+      document.getElementById("hero-date-display").textContent =
+        `${WEDDING_CONFIG.date.fullDateTh} • ${WEDDING_CONFIG.date.timeSummaryTh}`;
+      document.getElementById("hero-venue-display").textContent = WEDDING_CONFIG.venue.nameTh;
+      document.getElementById("hero-welcome-quote").textContent = WEDDING_CONFIG.welcomeQuoteTh;
+
+      // 3. Couple Gallery Section
+      const galleryGrid = document.getElementById("gallery-grid");
+      galleryGrid.innerHTML = "";
+      WEDDING_CONFIG.gallery.forEach((item, index) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "gallery-item";
+        btn.setAttribute("role", "listitem");
+        btn.setAttribute("aria-label", `เปิดดูภาพ ${item.title}`);
+        btn.innerHTML = `
+          ${createThaiIllustrationSVG(item.theme, WEDDING_CONFIG.groom.firstNameTh, WEDDING_CONFIG.bride.firstNameTh)}
+          <div class="gallery-caption-bar">${item.title}</div>
+        `;
+        btn.addEventListener("click", () => openLightbox(index));
+        galleryGrid.appendChild(btn);
+      });
+
+      // 4. Invitation Section (Default Thai)
+      renderInvitationLanguage("th");
+
+      // 5. Schedule Section (Filter out items missing time or title)
+      const scheduleTimeline = document.getElementById("schedule-timeline");
+      scheduleTimeline.innerHTML = "";
+      const validSchedule = WEDDING_CONFIG.schedule.filter(
+        item => item && item.time && item.time.trim() !== "" && item.title && item.title.trim() !== ""
+      );
+      validSchedule.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "timeline-item";
+        row.setAttribute("role", "listitem");
+        row.innerHTML = `
+          <div class="timeline-icon-node" aria-hidden="true">
+            ${getScheduleIconSVG(item.icon)}
+          </div>
+          <div class="timeline-card">
+            <span class="timeline-time-badge">${item.time}</span>
+            <h3 class="timeline-title">${item.title}</h3>
+            <p class="timeline-desc">${item.description || ""}</p>
+          </div>
+        `;
+        scheduleTimeline.appendChild(row);
+      });
+
+      // 6. Venue / Location Section
+      document.getElementById("venue-illustration").innerHTML = createVenueSVG();
+      document.getElementById("venue-name").textContent = WEDDING_CONFIG.venue.nameTh;
+      document.getElementById("venue-hall").textContent = WEDDING_CONFIG.venue.hallTh;
+      document.getElementById("venue-address").textContent = WEDDING_CONFIG.venue.addressTh;
+      document.getElementById("venue-map-url-text").textContent = WEDDING_CONFIG.venue.googleMapsUrl;
+
+      // 7. QR Code Center (Filter out items without payload)
+      const qrContainer = document.getElementById("qr-cards-container");
+      qrContainer.innerHTML = "";
+      const validQRs = WEDDING_CONFIG.qrCodes.filter(q => q && q.payload && q.payload.trim() !== "");
+      validQRs.forEach(qr => {
+        const svgMarkup = QRGenerator.toSVG(qr.payload);
+        const card = document.createElement("article");
+        card.className = "qr-card";
+        card.innerHTML = `
+          <span class="qr-type-badge">${qr.typeBadge}</span>
+          <h3 class="qr-card-title">${qr.title}</h3>
+          <p class="qr-card-desc">${qr.description}</p>
+          <div class="qr-code-frame" role="button" tabindex="0" aria-label="แตะเพื่อขยาย ${qr.title}">
+            ${svgMarkup}
+          </div>
+          <div class="qr-account-meta">${qr.accountMeta}</div>
+          <div class="qr-actions-grid">
+            <button type="button" class="qr-btn-sm primary-tone js-qr-zoom">
+              <span aria-hidden="true">🔍</span>
+              <span>ขยายภาพ QR</span>
+            </button>
+            <button type="button" class="qr-btn-sm js-qr-download">
+              <span aria-hidden="true">⬇</span>
+              <span>ดาวน์โหลด QR</span>
+            </button>
+            <button type="button" class="qr-btn-sm full-span js-qr-copy">
+              <span aria-hidden="true">📋</span>
+              <span class="js-copy-text">${qr.copyLabel || "คัดลอกข้อมูล"}</span>
+            </button>
+          </div>
+        `;
+
+        // Attach QR actions
+        const qrFrame = card.querySelector(".qr-code-frame");
+        const zoomBtn = card.querySelector(".js-qr-zoom");
+        const downloadBtn = card.querySelector(".js-qr-download");
+        const copyBtn = card.querySelector(".js-qr-copy");
+
+        const openZoom = () => openQRZoomModal(qr, svgMarkup);
+        qrFrame.addEventListener("click", openZoom);
+        qrFrame.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openZoom();
+          }
+        });
+        zoomBtn.addEventListener("click", openZoom);
+
+        downloadBtn.addEventListener("click", () => {
+          downloadQRCodeSVG(svgMarkup, `${qr.id}.svg`, downloadBtn);
+        });
+
+        copyBtn.addEventListener("click", () => {
+          const labelSpan = copyBtn.querySelector(".js-copy-text");
+          copyTextWithFeedback(qr.copyValue || qr.payload, labelSpan, qr.copyLabel || "คัดลอกข้อมูล");
+        });
+
+        qrContainer.appendChild(card);
+      });
+
+      // 8. Closing Section
+      document.getElementById("closing-message").textContent = WEDDING_CONFIG.closingMessageTh;
+      document.getElementById("closing-couple-names").textContent =
+        `${WEDDING_CONFIG.groom.firstNameTh} & ${WEDDING_CONFIG.bride.firstNameTh}`;
+      document.getElementById("closing-hashtag").textContent = WEDDING_CONFIG.hashtag;
+    }
+
+    /**
+     * Render Formal Invitation Card Content (Thai / English with smooth transition)
+     */
+    function renderInvitationLanguage(lang) {
+      const panel = document.getElementById("invitation-panel");
+      const data = WEDDING_CONFIG.invitation[lang];
+      const isTh = lang === "th";
+
+      const groomParents = isTh
+        ? WEDDING_CONFIG.parents.groomSideTh
+        : WEDDING_CONFIG.parents.groomSideEn;
+      const brideParents = isTh
+        ? WEDDING_CONFIG.parents.brideSideTh
+        : WEDDING_CONFIG.parents.brideSideEn;
+
+      const groomFull = isTh ? WEDDING_CONFIG.groom.fullNameTh : WEDDING_CONFIG.groom.fullNameEn;
+      const brideFull = isTh ? WEDDING_CONFIG.bride.fullNameTh : WEDDING_CONFIG.bride.fullNameEn;
+
+      panel.innerHTML = `
+        <div class="parents-grid">
+          <div>
+            <div class="parent-side-label">${data.groomParentsLabel}</div>
+            <div class="parent-names">${groomParents.join("<br>")}</div>
+          </div>
+          <div>
+            <div class="parent-side-label">${data.brideParentsLabel}</div>
+            <div class="parent-names">${brideParents.join("<br>")}</div>
+          </div>
+        </div>
+
+        <p class="formal-invite-text">${data.headerTitle}</p>
+
+        <div class="invite-couple-highlight">
+          <div class="name-line">${groomFull}</div>
+          <div class="couple-amp">${data.betweenLabel}</div>
+          <div class="name-line">${brideFull}</div>
+        </div>
+
+        <p class="formal-invite-text" style="white-space:pre-line;">${data.ceremonyNote}</p>
+        <p class="formal-invite-text" style="font-size:0.88rem;color:var(--antique-gold-dark);font-weight:600;">
+          ${data.dressCode}
+        </p>
+        <p class="invite-closing-line">${data.apologyNote}</p>
+      `;
+    }
+
+    /**
+     * Copy Utility with Inline Button State Feedback
+     */
+    function copyTextWithFeedback(text, labelElement, defaultLabel) {
+      const applyFeedback = () => {
+        labelElement.textContent = "คัดลอกเรียบร้อยแล้ว ✓";
+        setTimeout(() => {
+          labelElement.textContent = defaultLabel;
+        }, 2000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(applyFeedback).catch(() => {
+          fallbackCopy(text);
+          applyFeedback();
+        });
+      } else {
+        fallbackCopy(text);
+        applyFeedback();
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+      } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    /**
+     * Download QR Code SVG / PNG
+     */
+    function downloadQRCodeSVG(svgMarkup, filename, buttonEl) {
+      try {
+        const blob = new Blob([svgMarkup], { type: "image/svg+xml;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      } catch (e) {}
+
+      const span = buttonEl.querySelector("span:last-child");
+      if (span) {
+        const orig = span.textContent;
+        span.textContent = "บันทึก QR แล้ว ✓";
+        setTimeout(() => {
+          span.textContent = orig;
+        }, 2000);
+      }
+    }
+
+    /**
+     * Lightbox Controller (Supports Next/Prev, ESC, and Touch Swipe)
+     */
+    let currentGalleryIndex = 0;
+    let touchStartX = 0;
+
+    function openLightbox(index) {
+      currentGalleryIndex = index;
+      updateLightboxView();
+      const modal = document.getElementById("gallery-lightbox");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lock-scroll");
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById("gallery-lightbox");
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      if (!document.getElementById("envelope-screen").classList.contains("is-dismissed")) {
+        return;
+      }
+      document.body.classList.remove("lock-scroll");
+    }
+
+    function stepLightbox(delta) {
+      const total = WEDDING_CONFIG.gallery.length;
+      currentGalleryIndex = (currentGalleryIndex + delta + total) % total;
+      updateLightboxView();
+    }
+
+    function updateLightboxView() {
+      const item = WEDDING_CONFIG.gallery[currentGalleryIndex];
+      const total = WEDDING_CONFIG.gallery.length;
+      document.getElementById("lightbox-counter").textContent = `${currentGalleryIndex + 1} / ${total}`;
+      document.getElementById("lightbox-title").textContent = item.title;
+      document.getElementById("lightbox-sub").textContent = item.subtitle;
+      document.getElementById("lightbox-media-box").innerHTML = createThaiIllustrationSVG(
+        item.theme,
+        WEDDING_CONFIG.groom.firstNameTh,
+        WEDDING_CONFIG.bride.firstNameTh
+      );
+    }
+
+    /**
+     * QR Zoom Modal Controller
+     */
+    function openQRZoomModal(qr, svgMarkup) {
+      const modal = document.getElementById("qr-zoom-modal");
+      document.getElementById("qr-zoom-badge").textContent = qr.typeBadge;
+      document.getElementById("qr-zoom-title").textContent = qr.title;
+      document.getElementById("qr-zoom-svg-box").innerHTML = svgMarkup;
+      document.getElementById("qr-zoom-meta").textContent = qr.accountMeta;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lock-scroll");
+    }
+
+    function closeQRZoomModal() {
+      const modal = document.getElementById("qr-zoom-modal");
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lock-scroll");
+    }
+
+    /**
+     * Ambient Golden Particles & Floating Jasmine Petals (Lightweight 60fps Canvas)
+     */
+    function initAmbientParticles() {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) return;
+
+      const canvas = document.getElementById("ambient-canvas");
+      const ctx = canvas.getContext("2d");
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const count = width < 480 ? 18 : 26;
+      const particles = Array.from({ length: count }, (_, idx) => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: idx % 3 === 0 ? 4.5 : 2.2,
+        isPetal: idx % 3 === 0,
+        vy: 0.25 + Math.random() * 0.45,
+        vx: -0.2 + Math.random() * 0.4,
+        angle: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.015,
+        alpha: 0.25 + Math.random() * 0.45
+      }));
+
+      function drawFrame() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.y += p.vy;
+          p.x += p.vx + Math.sin(p.angle) * 0.2;
+          p.angle += p.spin;
+
+          if (p.y > height + 12) {
+            p.y = -12;
+            p.x = Math.random() * width;
+          }
+          if (p.x > width + 12) p.x = -12;
+          if (p.x < -12) p.x = width + 12;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.angle);
+          if (p.isPetal) {
+            // Soft Jasmine Petal
+            ctx.fillStyle = `rgba(255, 252, 242, ${p.alpha})`;
+            ctx.strokeStyle = `rgba(214, 181, 109, ${p.alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, p.r * 1.45, p.r * 0.85, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+          } else {
+            // Golden Shimmer Particle
+            ctx.fillStyle = `rgba(184, 134, 53, ${p.alpha})`;
+            ctx.beginPath();
+            ctx.arc(0, 0, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+        requestAnimationFrame(drawFrame);
+      }
+
+      requestAnimationFrame(drawFrame);
+    }
+
+    /**
+     * Initialize Interactions & Event Listeners
+     */
+    document.addEventListener("DOMContentLoaded", () => {
+      renderWeddingApp();
+      initAmbientParticles();
+
+      const envelopeScreen = document.getElementById("envelope-screen");
+      const envelopeBox = document.getElementById("envelope-box");
+      const openEnvelopeBtn = document.getElementById("open-envelope-btn");
+      const waxSealTrigger = document.getElementById("wax-seal-trigger");
+      const reopenEnvelopeBtn = document.getElementById("reopen-envelope-btn");
+      const bottomNav = document.getElementById("mobile-bottom-nav");
+
+      function handleOpenEnvelope() {
+        if (envelopeBox.classList.contains("is-opening")) return;
+        envelopeBox.classList.add("is-opening");
+        ThaiSoundEngine.playAuspiciousChime();
+
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const delay = prefersReduced ? 80 : 780;
+
+        setTimeout(() => {
+          envelopeScreen.classList.add("is-dismissed");
+          document.body.classList.remove("lock-scroll");
+          bottomNav.classList.remove("is-hidden");
+        }, delay);
+      }
+
+      openEnvelopeBtn.addEventListener("click", handleOpenEnvelope);
+      waxSealTrigger.addEventListener("click", handleOpenEnvelope);
+
+      reopenEnvelopeBtn.addEventListener("click", () => {
+        envelopeBox.classList.remove("is-opening");
+        envelopeScreen.classList.remove("is-dismissed");
+        document.body.classList.add("lock-scroll");
+        bottomNav.classList.add("is-hidden");
+      });
+
+      // Sound Toggle Buttons
+      const envSoundBtn = document.getElementById("envelope-sound-btn");
+      const mainSoundBtn = document.getElementById("main-sound-btn");
+
+      function syncSoundButtons(isOn) {
+        envSoundBtn.setAttribute("aria-pressed", String(isOn));
+        mainSoundBtn.setAttribute("aria-pressed", String(isOn));
+        document.getElementById("envelope-sound-icon").textContent = isOn ? "🔊" : "🔇";
+        document.getElementById("envelope-sound-label").textContent = isOn ? "เปิดเสียง" : "ปิดเสียง";
+        document.getElementById("main-sound-icon").textContent = isOn ? "🔊" : "🔇";
+      }
+
+      envSoundBtn.addEventListener("click", () => syncSoundButtons(ThaiSoundEngine.toggle()));
+      mainSoundBtn.addEventListener("click", () => syncSoundButtons(ThaiSoundEngine.toggle()));
+
+      // Invitation Language Tabs
+      const tabButtons = document.querySelectorAll(".lang-tab-btn");
+      const invitationPanel = document.getElementById("invitation-panel");
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const lang = btn.getAttribute("data-lang");
+          tabButtons.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
+          invitationPanel.setAttribute("aria-labelledby", btn.id);
+          invitationPanel.classList.add("is-fading");
+          setTimeout(() => {
+            renderInvitationLanguage(lang);
+            invitationPanel.classList.remove("is-fading");
+          }, 180);
+        });
+      });
+
+      // Venue Map Button & Copy Venue Address Button
+      const venueMapBtn = document.getElementById("venue-map-btn");
+      const venueMapDrawer = document.getElementById("venue-map-drawer");
+      venueMapBtn.addEventListener("click", () => {
+        const isHidden = venueMapDrawer.style.display === "none";
+        venueMapDrawer.style.display = isHidden ? "block" : "none";
+      });
+
+      const copyMapUrlBtn = document.getElementById("copy-map-url-btn");
+      const copyMapUrlLabel = document.getElementById("copy-map-url-label");
+      copyMapUrlBtn.addEventListener("click", () => {
+        copyTextWithFeedback(WEDDING_CONFIG.venue.googleMapsUrl, copyMapUrlLabel, "คัดลอกลิงก์ Google Maps");
+      });
+
+      const copyAddressBtn = document.getElementById("copy-address-btn");
+      const copyAddressLabel = document.getElementById("copy-address-label");
+      copyAddressBtn.addEventListener("click", () => {
+        const fullAddr = `${WEDDING_CONFIG.venue.nameTh} ${WEDDING_CONFIG.venue.addressTh}`;
+        copyTextWithFeedback(fullAddr, copyAddressLabel, "คัดลอกที่อยู่");
+      });
+
+      // Back to Top Button
+      document.getElementById("back-to-top-btn").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Lightbox Controls & Swipe
+      document.getElementById("lightbox-close-btn").addEventListener("click", closeLightbox);
+      document.getElementById("lightbox-prev-btn").addEventListener("click", () => stepLightbox(-1));
+      document.getElementById("lightbox-next-btn").addEventListener("click", () => stepLightbox(1));
+
+      const touchStage = document.getElementById("lightbox-touch-stage");
+      touchStage.addEventListener("touchstart", e => {
+        if (e.touches && e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+        }
+      }, { passive: true });
+
+      touchStage.addEventListener("touchend", e => {
+        if (e.changedTouches && e.changedTouches.length === 1) {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) > 42) {
+            stepLightbox(dx < 0 ? 1 : -1);
+          }
+        }
+      }, { passive: true });
+
+      // QR Zoom Close
+      document.getElementById("qr-zoom-close-btn").addEventListener("click", closeQRZoomModal);
+      document.getElementById("qr-zoom-modal").addEventListener("click", e => {
+        if (e.target.id === "qr-zoom-modal") closeQRZoomModal();
+      });
+
+      // Global ESC Key Support
+      window.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+          closeLightbox();
+          closeQRZoomModal();
+        } else if (document.getElementById("gallery-lightbox").classList.contains("is-open")) {
+          if (e.key === "ArrowLeft") stepLightbox(-1);
+          if (e.key === "ArrowRight") stepLightbox(1);
+        }
+      });
+
+      // Bottom Navigation Smooth Scroll & Active Section Tracking
+      const navButtons = document.querySelectorAll(".bottom-nav-btn");
+      navButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.getAttribute("data-target");
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Scroll Reveal & Active Bottom Nav Observer
+      const revealEls = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        const sectionIds = ["section-hero", "section-gallery", "section-invitation", "section-schedule", "section-qrcode"];
+        const navObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navButtons.forEach(btn => {
+                btn.classList.toggle("is-active", btn.getAttribute("data-target") === id);
+              });
+            }
+          });
+        }, { rootMargin: "-35% 0px -50% 0px" });
+
+        sectionIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) navObserver.observe(el);
+        });
+      } else {
+        revealEls.forEach(el => el.classList.add("is-visible"));
+      }
+    });
+  </script>
+</body>
+</html>
